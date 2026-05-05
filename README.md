@@ -1,2 +1,1 @@
-# awesome-software-engineering
-Awesome Software Engineering Resources
+# Awesome Software Engineering Resources
