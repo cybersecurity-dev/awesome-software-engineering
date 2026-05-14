@@ -34,8 +34,9 @@
 
 ## Calling Convention
 
-### `__cdecl`
+### 1. `__cdecl`
 __cdecl stands for `"C declaration"` convention.
+
 Key characteristics:
 - ✅ Arguments are passed on the stack (right → left)
 - ✅ Caller cleans up the stack after the function call
@@ -57,26 +58,27 @@ Simplified Call Flow:
     Caller removes arguments from the stack
 ```
 
-### `__stdcall`
+### 2. `__stdcall`
 Key characteristics:
 - ✅ Arguments passed right → left (same as **__cdecl**)
 - ❌ Callee cleans up the stack
 - ✅ Used in Windows API
 
-### `__fastcall`
+### 3. `__fastcall`
 
 Key characteristics:
 - ✅ First arguments passed in registers (faster)
 - ✅ Remaining arguments go on the stack
 - ✅ Can improve performance
 
-### `__thiscall`
+### 4. `__thiscall`
 Used for C++ class member functions
+
 Key characteristics:
 - ✅ this pointer passed in a register (usually ECX)
 - ✅ Other arguments on stack
 
-### `__vectorcall` (modern)
+### 5. `__vectorcall` (modern)
 
 Key characteristics:
 - ✅ Optimized for SIMD/vector operations
@@ -84,14 +86,15 @@ Key characteristics:
 
 | Convention     | Stack Cleanup | Argument Passing        | Typical Use               |
 |----------------|--------------|------------------------|--------------------------|
-| `__cdecl`      | Caller       | Stack (right to left)  | Default C functions      |
-| `__stdcall`    | Callee       | Stack (right to left)  | Windows API              |
-| `__fastcall`   | Callee       | Registers + stack      | Performance optimization |
-| `__thiscall`   | Callee       | `this` in register + stack | C++ member functions |
-| `__vectorcall` | Callee       | Vector registers + stack | SIMD / vector operations |
+| 1. `__cdecl`      | Caller       | Stack (right to left)  | Default C functions      |
+| 2. `__stdcall`    | Callee       | Stack (right to left)  | Windows API              |
+| 3. `__fastcall`   | Callee       | Registers + stack      | Performance optimization |
+| 4. `__thiscall`   | Callee       | `this` in register + stack | C++ member functions |
+| 5. `__vectorcall` | Callee       | Vector registers + stack | SIMD / vector operations |
 
 * `Caller` = the function that calls another function
 * `Callee` = the function that is being called
+
 
 ##
 
