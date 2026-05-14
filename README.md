@@ -32,6 +32,45 @@
 - I — `Interface Segregation Principle (ISP)`
 - D — `Dependency Inversion Principle (DIP)`
 
+## Calling Convention
+
+### `__cdecl`
+__cdecl stands for `"C declaration"` convention.
+Key characteristics:
+- ✅ Arguments are passed on the stack (right → left)
+- ✅ Caller cleans up the stack after the function call
+- ✅ Supports variable number of arguments (e.g., printf)
+- ✅ Default calling convention in many C/C++ compilers (like MSVC for x86)
+
+### `__fastcall`
+
+Key characteristics:
+- ✅ First arguments passed in registers (faster)
+- ✅ Remaining arguments go on the stack
+- ✅ Can improve performance
+
+### `__thiscall`
+Used for C++ class member functions
+Key characteristics:
+- ✅ this pointer passed in a register (usually ECX)
+- ✅ Other arguments on stack
+
+### `__vectorcall` (modern)
+
+Key characteristics:
+- ✅ Optimized for SIMD/vector operations
+- ✅ Passes arguments in vector registers
+
+| Convention     | Stack Cleanup | Argument Passing        | Typical Use               |
+|----------------|--------------|------------------------|--------------------------|
+| `__cdecl`      | Caller       | Stack (right to left)  | Default C functions      |
+| `__stdcall`    | Callee       | Stack (right to left)  | Windows API              |
+| `__fastcall`   | Callee       | Registers + stack      | Performance optimization |
+| `__thiscall`   | Callee       | `this` in register + stack | C++ member functions |
+| `__vectorcall` | Callee       | Vector registers + stack | SIMD / vector operations |
+
+* `Caller` = the function that calls another function
+* `Callee` = the function that is being called
 
 ##
 
