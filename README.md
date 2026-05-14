@@ -42,6 +42,27 @@ Key characteristics:
 - ✅ Supports variable number of arguments (e.g., printf)
 - ✅ Default calling convention in many C/C++ compilers (like MSVC for x86)
 
+```c
+int __cdecl add(int a, int b) {
+    return a + b;
+}
+```
+
+```
+Simplified Call Flow:
+    Push b
+    Push a
+    Call add function
+    Function returns
+    Caller removes arguments from the stack
+```
+
+### `__stdcall`
+Key characteristics:
+- ✅ Arguments passed right → left (same as **__cdecl**)
+- ❌ Callee cleans up the stack
+- ✅ Used in Windows API
+
 ### `__fastcall`
 
 Key characteristics:
