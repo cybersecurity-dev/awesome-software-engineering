@@ -17,6 +17,9 @@
 
 ## 📖 Contents
 - [Design Guidelines for Object-Oriented Software Development](#design-guidelines-for-object-oriented-software-development)
+    - [SOLID](#solid) 
+- [Function calls](#function-calls)
+- [Calling Convention](#calling-convention)
 - [My Other Awesome Lists](#my-other-awesome-lists)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
@@ -32,6 +35,36 @@
 - I — `Interface Segregation Principle (ISP)`
 - D — `Dependency Inversion Principle (DIP)`
 
+## Function calls
+
+### 1. Pass by Value (C \& C++)
+```
+A copy of the variable is passed to the function. The original variable is NOT changed.
+```
+```c
+void foo(int x) {
+    x = 100;   // modifies only the copy
+}
+```
+### 2. Pass by Pointer (C \& C++)
+```
+Instead of passing a value, you pass the address of a variable. The function can modify the original variable using pointers.
+```
+```c
+void bar(int *x) {
+    *x = 100;  // modifies original value
+}
+```
+
+### 3. Pass by Reference (C++ only)
+```
+The function receives a reference (alias) to the original variable. No need to use pointers (*, & inside function body). Changes affect the original variable directly.
+```
+```c
+void bar(int &x) {
+    x = 100;   // directly modifies original
+}
+```
 ## Calling Convention
 
 ### 1. `__cdecl`
@@ -106,5 +139,8 @@ You can access the my other awesome lists [here](https://cyberthreatdefence.com/
 
 ### Contributors
 [Thanks goes to these contributors](https://github.com/cybersecurity-dev/awesome-software-engineering/graphs/contributors)!
+
+### License
+[![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](http://creativecommons.org/publicdomain/zero/1.0)
 
 [🔼 Back to top](#awesome-software-engineering-)
