@@ -15,6 +15,96 @@
     <img src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/bar.gif">
 </p>
 
+```mermaid
+flowchart LR
+    TEAM["Software Engineering Team"]
+
+    subgraph PLAN["Planning and<br/>Collaboration"]
+        JIRA["Issue<br/>Tracker"]
+        BOARD["Kanban or<br/>Scrum Board"]
+        WIKI["Project Wiki"]
+        CHAT["Team Communication"]
+        ROADMAP["Product<br/>Roadmap"]
+    end
+
+    subgraph MODEL["Analysis and<br/>Modeling"]
+        UML["UML Modeling<br/>Tool"]
+        PROTO["Prototyping<br/>Tool"]
+        REQ["Requirements<br/>Repository"]
+        ADR["Architecture<br/>Decision Records"]
+    end
+
+    subgraph DEVELOP["Development"]
+        IDE["IDE or<br/>Code Editor"]
+        GIT["Git"]
+        REPO["Source<br/>Repository"]
+        BUILD["Build<br/>Tool"]
+        PACKAGE["Package<br/>Manager"]
+    end
+
+    subgraph QUALITY["Quality<br/>Assurance"]
+        TEST["Test<br/>Framework"]
+        STATIC["Static<br/>Analyzer"]
+        REVIEW["Code<br/>Review"]
+        SECURITY["Security<br/>Scanner"]
+        COVERAGE["Coverage<br/>Tool"]
+    end
+
+    subgraph DELIVERY["Delivery and<br/>Operations"]
+        CI["CI Server"]
+        REGISTRY["Artifact<br/>Registry"]
+        CONTAINER["Container<br/>Platform"]
+        DEPLOY["Deployment<br/>Tool"]
+        MONITOR["Monitoring<br/>and Logging"]
+    end
+
+    TEAM --> PLAN
+    TEAM --> MODEL
+    TEAM --> DEVELOP
+    TEAM --> QUALITY
+    TEAM --> DELIVERY
+
+    ROADMAP --> REQ
+    REQ --> UML
+    UML --> ADR
+    ADR --> IDE
+
+    IDE --> GIT
+    GIT --> REPO
+    REPO --> BUILD
+    PACKAGE --> BUILD
+
+    BUILD --> TEST
+    TEST --> COVERAGE
+    REPO --> REVIEW
+    BUILD --> STATIC
+    BUILD --> SECURITY
+
+    TEST --> CI
+    STATIC --> CI
+    SECURITY --> CI
+    CI --> REGISTRY
+    REGISTRY --> CONTAINER
+    CONTAINER --> DEPLOY
+    DEPLOY --> MONITOR
+
+    MONITOR -.->|"Operational feedback"| BOARD
+    BOARD -.->|"Prioritized work"| TEAM
+
+    classDef team fill:#263238,color:#fff,stroke:#111,stroke-width:2px
+    classDef planning fill:#e3f2fd,color:#111,stroke:#1e88e5
+    classDef modeling fill:#fff3e0,color:#111,stroke:#fb8c00
+    classDef development fill:#e8f5e9,color:#111,stroke:#43a047
+    classDef quality fill:#ffebee,color:#111,stroke:#e53935
+    classDef delivery fill:#f3e5f5,color:#111,stroke:#8e24aa
+
+    class TEAM team
+    class JIRA,BOARD,WIKI,CHAT,ROADMAP planning
+    class UML,PROTO,REQ,ADR modeling
+    class IDE,GIT,REPO,BUILD,PACKAGE development
+    class TEST,STATIC,REVIEW,SECURITY,COVERAGE quality
+    class CI,REGISTRY,CONTAINER,DEPLOY,MONITOR delivery
+```
 ## 📖 Contents
 - [Design Guidelines for Object-Oriented Software Development](#design-guidelines-for-object-oriented-software-development)
     - [SOLID](#solid) 
