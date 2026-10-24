@@ -9,7 +9,7 @@
 <p align="center">
     <a href="https://github.com/cybersecurity-dev/"><img height="25" src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/github.svg" alt="GitHub"></a>
     &nbsp;
-    <a href="https://www.youtube.com/@CyberThreatDefence"><img height="25" src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/youtube.svg" alt="YouTube"></a>
+    <a href="https://www.youtube.com/@CyberThreatDefense"><img height="25" src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/youtube.svg" alt="YouTube"></a>
     &nbsp;
     <a href="https://cyberthreatdefence.com/my_awesome_lists"><img height="20" src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/blog.svg" alt="My Awesome Lists"></a>
     <img src="https://github.com/cybersecurity-dev/cybersecurity-dev/blob/main/assets/bar.gif">
@@ -17,7 +17,7 @@
 
 ```mermaid
 flowchart LR
-    TEAM["Software Engineering Team"]
+    TEAM["Software<br/>Engineering<br/>Team"]
 
     subgraph PLAN["Planning and<br/>Collaboration"]
         JIRA["Issue<br/>Tracker"]
@@ -105,6 +105,7 @@ flowchart LR
     class TEST,STATIC,REVIEW,SECURITY,COVERAGE quality
     class CI,REGISTRY,CONTAINER,DEPLOY,MONITOR delivery
 ```
+
 ## 📖 Contents
 - [Design Guidelines for Object-Oriented Software Development](#design-guidelines-for-object-oriented-software-development)
     - [SOLID](#solid) 
@@ -118,6 +119,49 @@ flowchart LR
 ## Design Guidelines for Object-Oriented Software Development
 
 ### SOLID
+
+```mermaid
+flowchart LR
+    SOLID["SOLID Principles"]
+
+    SOLID --> SRP["Single Responsibility<br/>Principle"]
+    SOLID --> OCP["Open-Closed<br/>Principle"]
+    SOLID --> LSP["Liskov Substitution<br/>Principle"]
+    SOLID --> ISP["Interface Segregation<br/>Principle"]
+    SOLID --> DIP["Dependency Inversion<br/>Principle"]
+
+    SRP --> SRP_Q["One reason<br/>to change"]
+    SRP --> SRP_B["Smaller<br/>focused<br/>modules"]
+    SRP --> SRP_R["Reduced change<br/>impact"]
+
+    OCP --> OCP_Q["Open for<br/>extension"]
+    OCP --> OCP_B["Closed for<br/>modification"]
+    OCP --> OCP_R["Add behavior<br/>through<br/>abstraction"]
+
+    LSP --> LSP_Q["Subtypes preserve<br/>expectations"]
+    LSP --> LSP_B["Honor behavioral<br/>contracts"]
+    LSP --> LSP_R["Safe<br/>polymorphism"]
+
+    ISP --> ISP_Q["Small<br/>client-specific<br/>interfaces"]
+    ISP --> ISP_B["Avoid<br/>unused<br/>dependencies"]
+    ISP --> ISP_R["Reduce<br/>coupling"]
+
+    DIP --> DIP_Q["Depend on<br/>abstractions"]
+    DIP --> DIP_B["Separate policy<br/>from details"]
+    DIP --> DIP_R["Improve<br/>testability"]
+
+    classDef root fill:#263238,color:#fff,stroke:#111,stroke-width:3px
+    classDef principle fill:#1565c0,color:#fff,stroke:#0d47a1,stroke-width:2px
+    classDef idea fill:#e3f2fd,color:#111,stroke:#1e88e5
+    classDef benefit fill:#e8f5e9,color:#111,stroke:#43a047
+    classDef result fill:#fff3e0,color:#111,stroke:#fb8c00
+
+    class SOLID root
+    class SRP,OCP,LSP,ISP,DIP principle
+    class SRP_Q,OCP_Q,LSP_Q,ISP_Q,DIP_Q idea
+    class SRP_B,OCP_B,LSP_B,ISP_B,DIP_B benefit
+    class SRP_R,OCP_R,LSP_R,ISP_R,DIP_R result
+```
 
 - S — `Single Responsibility Principle (SRP)`
 - O — `Open/Closed Principle (OCP)`
