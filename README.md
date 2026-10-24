@@ -1,5 +1,36 @@
 <div align="center">
 
+```mermaid
+gitGraph
+    commit id: "Initial baseline"
+    commit id: "Project structure"
+
+    branch feature-login
+    checkout feature-login
+    commit id: "Add login model"
+    commit id: "Implement authentication"
+    commit id: "Add login tests"
+
+    checkout main
+    branch feature-report
+    checkout feature-report
+    commit id: "Create report service"
+    commit id: "Add report tests"
+
+    checkout main
+    merge feature-login id: "Merge login feature"
+
+    branch release
+    checkout release
+    commit id: "Prepare release"
+    commit id: "Fix release issue"
+
+    checkout main
+    merge feature-report id: "Merge report feature"
+    merge release id: "Release version"
+    commit id: "Tag stable release"
+```
+
 # **`Awesome`** Software Engineering [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 </div>
 
@@ -119,49 +150,6 @@ flowchart LR
 ## Design Guidelines for Object-Oriented Software Development
 
 ### SOLID
-
-```mermaid
-flowchart LR
-    SOLID["SOLID Principles"]
-
-    SOLID --> SRP["Single Responsibility<br/>Principle"]
-    SOLID --> OCP["Open-Closed<br/>Principle"]
-    SOLID --> LSP["Liskov Substitution<br/>Principle"]
-    SOLID --> ISP["Interface Segregation<br/>Principle"]
-    SOLID --> DIP["Dependency Inversion<br/>Principle"]
-
-    SRP --> SRP_Q["One reason<br/>to change"]
-    SRP --> SRP_B["Smaller<br/>focused<br/>modules"]
-    SRP --> SRP_R["Reduced change<br/>impact"]
-
-    OCP --> OCP_Q["Open for<br/>extension"]
-    OCP --> OCP_B["Closed for<br/>modification"]
-    OCP --> OCP_R["Add behavior<br/>through<br/>abstraction"]
-
-    LSP --> LSP_Q["Subtypes preserve<br/>expectations"]
-    LSP --> LSP_B["Honor behavioral<br/>contracts"]
-    LSP --> LSP_R["Safe<br/>polymorphism"]
-
-    ISP --> ISP_Q["Small<br/>client-specific<br/>interfaces"]
-    ISP --> ISP_B["Avoid<br/>unused<br/>dependencies"]
-    ISP --> ISP_R["Reduce<br/>coupling"]
-
-    DIP --> DIP_Q["Depend on<br/>abstractions"]
-    DIP --> DIP_B["Separate policy<br/>from details"]
-    DIP --> DIP_R["Improve<br/>testability"]
-
-    classDef root fill:#263238,color:#fff,stroke:#111,stroke-width:3px
-    classDef principle fill:#1565c0,color:#fff,stroke:#0d47a1,stroke-width:2px
-    classDef idea fill:#e3f2fd,color:#111,stroke:#1e88e5
-    classDef benefit fill:#e8f5e9,color:#111,stroke:#43a047
-    classDef result fill:#fff3e0,color:#111,stroke:#fb8c00
-
-    class SOLID root
-    class SRP,OCP,LSP,ISP,DIP principle
-    class SRP_Q,OCP_Q,LSP_Q,ISP_Q,DIP_Q idea
-    class SRP_B,OCP_B,LSP_B,ISP_B,DIP_B benefit
-    class SRP_R,OCP_R,LSP_R,ISP_R,DIP_R result
-```
 
 - S — `Single Responsibility Principle (SRP)`
 - O — `Open/Closed Principle (OCP)`
